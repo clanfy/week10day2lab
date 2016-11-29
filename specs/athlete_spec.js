@@ -1,5 +1,5 @@
 var athlete = require ('../athlete');
-var bottle = require ('../water_bottle');
+// var bottle = require ('../water_bottle'); -- DONT NEED THIS
 var assert = require("assert");
 
 describe("Athlete", function(){
@@ -21,15 +21,17 @@ describe("Athlete", function(){
     for (var i = 0; i < 10; i++) {
       athlete.run();}
       athlete.run();
-    assert.equal(1000, athlete.distanceCovered);
-    assert.equal(0, athlete.hydration);
-  });
+      assert.equal(1000, athlete.distanceCovered);
+      assert.equal(0, athlete.hydration);
+    });
 
-  it("athlete can drink from water bottle", function(){
-    athlete.fillBottle();
-    athlete.drink();
-    athlete.bottle.empty();
-    assert.equal(10, athlete.hydration);
+  beforeEach(function(){
+    it("athlete can drink from water bottle", function(){
+      athlete.fillBottle();
+      athlete.drink();
+      // athlete.bottle.empty();
+      assert.equal(10, athlete.hydration);
+    });
   });
 
 
